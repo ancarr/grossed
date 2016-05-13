@@ -1,0 +1,37 @@
+
+'''Snakefile for gro-seq analysis'''
+
+from datetime import date
+today = date.today().isoformat()
+workdir: 'results-gro-seq'
+
+#The pos strand is associated with - strand sequencing data and the neg
+#strand is associated with + strand sequencing data because Mary Allen's
+# gro-seq data was sequenced backwards 
+
+STRANDS = {'pos':'-strand -', 'neg':'-strand +'}
+SIDES = {'5p':'-5', '3p':'-3'}
+
+ 
+BOWTIEINDEX = config['BOWTIEINDEX'] 
+CHROMSIZE = config['CHROMSIZE']
+#FASTA = config['FASTA']
+
+from collections import namedtuple
+sample_info = namedtuple('sample_info', ['description', 'url'])
+SAMPLE_INFO = {id:sample_info(description, url) for id, description, url in 
+               zip(config['sample'], config['descriptions'],
+               config['urls'])}
+
+rule all:
+    input:
+        expand('data.bg/{sample}.{strand}.bg.gz',
+               sample=config['sample'], strand=STRANDS),
+        expand('data.bg/{sample}.{strand}.bw',
+               sample=config['sample'], strand=STRANDS)
+       # expand('data.genome/all.genome') 
+
+include: 'rules/dump.snake'
+include: 'rules/align.snake'
+include: 'rules/coverage.snake'
+

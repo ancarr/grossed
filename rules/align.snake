@@ -1,0 +1,19 @@
+''' rules for alignment '''
+
+rule align:
+    input:
+        'data.fastq/{sample}.fastq.gz'
+    output:
+        'data.bam/{sample}.bam' 
+    params:
+        sample = '{sample}',
+        job_name = 'align.{sample}'
+    threads: 8 
+    log:
+        'logs/{sample}/align.log' 
+    shell:
+        "bowtie2 -U {input} -x {BOWTIEINDEX} -p {threads} "
+        "| samtools view -F4 -bhu - "
+        "| samtools sort - "
+        "> {output}" 
+

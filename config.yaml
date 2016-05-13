@@ -1,0 +1,42 @@
+geo_acc: GSE53966
+PMID: 24867637
+descrip: GRO-Seq data Mary Allen 
+
+
+sample: 
+    - SRR1105736
+    - SRR1105737
+    - SRR1105738
+    - SRR1105739
+    - SRR1105740
+    - SRR1105741
+    - SRR1224573
+    - SRR1224574
+
+descriptions: 
+    - DMSO_p53_pos
+    - DMSO_p53_pos2
+    - Nutlin_p53_pos
+    - Nutlin_p53_pos2
+    - DMSO_p53_neg
+    - Nutlin_p53_neg
+    - DMSO_30min_p53_pos
+    - Nutlin_30min_p53_pos
+
+urls: 
+    - ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX%2FSRX424%2FSRX424490/SRR1105736/SRR1105736.sra 
+    - ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX%2FSRX424%2FSRX424490/SRR1105737/SRR1105737.sra
+    - ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX%2FSRX424%2FSRX424491/SRR1105738/SRR1105738.sra 
+    - ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX%2FSRX424%2FSRX424491/SRR1105739/SRR1105739.sra
+    - ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX%2FSRX424%2FSRX424492/SRR1105740/SRR1105740.sra
+    - ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX%2FSRX424%2FSRX424493/SRR1105741/SRR1105741.sra
+    - ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX%2FSRX513%2FSRX513524/SRR1224573/SRR1224573.sra
+    - ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX%2FSRX513%2FSRX513525/SRR1224574/SRR1224574.sra
+
+BOWTIEINDEX: '/vol3/home/jhessel/ref/genomes/hg19/hg19'
+CHROMSIZE: '/vol3/home/jhessel/ref/genomes/hg19/hg19.chrom.sizes'
+FASTA: '/vol3/home/jhessel/ref/genomes/hg19/hg19.fa.gz' 
+
+
+
+
