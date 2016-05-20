@@ -11,5 +11,5 @@ if [[ ! -d $workdir/log ]]; then
     mkdir -p $workdir/log
 fi
 
-args=' -q normal -n {threads} -o {log}.out -e {log}.err -J {params.job_name}'
+args=' -C 0 -q normal -n {threads} -o {log}.out -e {log}.err -J {params.job_name}'
 snakemake --drmaa "$args" --jobs 32 --configfile config.yaml

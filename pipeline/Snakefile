@@ -15,7 +15,7 @@ SIDES = {'5p':'-5', '3p':'-3'}
  
 BOWTIEINDEX = config['BOWTIEINDEX'] 
 CHROMSIZE = config['CHROMSIZE']
-#FASTA = config['FASTA']
+FASTA = config['FASTA']
 
 from collections import namedtuple
 sample_info = namedtuple('sample_info', ['description', 'url'])
@@ -28,10 +28,10 @@ rule all:
         expand('data.bg/{sample}.{strand}.bg.gz',
                sample=config['sample'], strand=STRANDS),
         expand('data.bg/{sample}.{strand}.bw',
-               sample=config['sample'], strand=STRANDS)
-       # expand('data.genome/all.genome') 
+               sample=config['sample'], strand=STRANDS),
+        'data.genome/all.genomedata' 
 
 include: 'rules/dump.snake'
 include: 'rules/align.snake'
 include: 'rules/coverage.snake'
-
+include: 'rules/genomedata.snake'

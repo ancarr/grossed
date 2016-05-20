@@ -6,7 +6,7 @@
 rule download_sra:
     output:
        'data.sra/{sample}.sra'
-    log: 
+    log:
         'logs/{sample}/download_sra.{sample}.log'
     params:
         job_name = 'download_sra.{sample}',
@@ -15,32 +15,14 @@ rule download_sra:
         'wget -nv -o {log} -O {output} {params.url}'
 
 
-rule sra_to_fastq: 
-    input: 
-        'data.sra/{sample}.sra' 
+rule sra_to_fastq:
+    input:
+        'data.sra/{sample}.sra'
     output:
-        'data.fastq/{sample}.fastq.gz' 
+        'data.fastq/{sample}.fastq.gz'
     log:
         'logs/{sample}/fastq.{sample}.log' 
     params:
         job_name = 'sra_to_fastq.{sample}'
-    shell: 
+    shell:
         'fastq-dump --gzip -O data.fastq {input}'
-
-
-#def concatenate_fastq(indir="data.fastq/{sample}.fastq",outfile="combined.data.genome/all.genome"): 
-
-   # fastq = 'data.fastq/{sample}.fastq'
-       # for {sample} in fastq: 
-           # if {sample} == {sample}:
-               # concat fastq to 'outfile' 
-
-
-
-
-
-
-
-
-
-

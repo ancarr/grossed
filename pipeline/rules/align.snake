@@ -14,6 +14,7 @@ rule align:
     shell:
         "bowtie2 -U {input} -x {BOWTIEINDEX} -p {threads} "
         "| samtools view -F4 -bhu - "
-        "| samtools sort - "
+        "| samtools sort -T {params.sample} - " 
         "> {output}" 
+
 

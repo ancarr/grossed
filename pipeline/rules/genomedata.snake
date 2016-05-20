@@ -23,10 +23,10 @@ def genomedata_trackspec(empty):
 
     filenames = genome_filespec(empty)
 
-    trackspec = ['-t %s=%s ' (trackname, filename)
+    trackspec = ['-t %s=%s ' % (trackname, filename)
                  for trackname, filename in zip(tracknames, filenames)
 
-    return trackspec 
+    return ''.join(trackspec) 
 
 rule load_genomedata:
     input: genomedata_filespec

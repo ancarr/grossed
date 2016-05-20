@@ -4,10 +4,10 @@ rule genome_coverage:
     input:
         'data.bam/{sample}.bam'
     output:
-        'data.bg/{sample}.{strand}.bg.gz' 
-    params: 
+        'data.bg/{sample}.{strand}.bg.gz'
+    params:
         strand_arg = lambda wildcards: STRANDS[wildcards.strand],
-        job_name = 'coverage.{sample}' 
+        job_name = 'coverage.{sample}'
     log:
         'logs/{sample}/coverage.log'
     shell:
@@ -19,16 +19,16 @@ rule genome_coverage:
 rule coverage_bigwigs:
     input:
         'data.bg/{sample}.{strand}.bg.gz'
-    output: 
+    output:
         temp('data.bg/{sample}.{strand}.bg'),
         'data.bg/{sample}.{strand}.bw'
-    params: 
+    params:
         tempfile = 'data.bg/{sample}.{strand}.bg',
         job_name = 'coverage.bigwig.{sample}.{strand}',
-    log: 
+    log:
         'logs/{sample}/coverage.bigwig.{strand}.log'
     shell:
         "zcat {input} > {params.tempfile}; "
-        "bedGraphToBigWig {params.tempfile} {CHROMSIZE} {output[1]}" 
+        "bedGraphToBigWig {params.tempfile} {CHROMSIZE} {output[1]}"
 
 
